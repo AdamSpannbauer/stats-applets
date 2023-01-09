@@ -1,6 +1,6 @@
 {
   "name": "stat-appletsv2",
-  "homepage": "https://adamspannbauer.github.io/stat-applets/",
+  "homepage": "https://adamspannbauer.github.io/stats-applets/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
