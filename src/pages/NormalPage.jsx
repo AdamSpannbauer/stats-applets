@@ -1,0 +1,102 @@
+import React, { useState } from 'react';
+
+import { Box, Grid } from '@mui/material';
+import MySelectInput from '../components/inputs/SelectInput';
+
+import DistPlot from '../components/DistPlot/DistPlot';
+import Normal from '../statistics/distributions/Normal';
+import CurveAreaRadioButtons from '../components/inputs/CurveAreaRadioButtons';
+import XInput from '../components/inputs/numInputs/XInput';
+import AreaInput from '../components/inputs/numInputs/AreaInput';
+import MeanInput from '../components/inputs/numInputs/MeanInput';
+import SDInput from '../components/inputs/numInputs/SDInput';
+
+function NumInputs(props) {
+  const {
+    // eslint-disable-next-line react/prop-types
+    selected, selectedArea, p, setP, x1, setX1, x2, setX2,
+  } = props;
+
+  if (selected === 'Find z using p-value') {
+    return (<AreaInput value={p} setter={setP} />);
+  } if (selected === 'Find p-value using z') {
+    if (selectedArea === 'outside' || selectedArea === 'between') {
+      return (
+        <>
+          <XInput label="X1" value={x1} setter={setX1} />
+          <XInput label="X2" value={x2} setter={setX2} />
+        </>
+      );
+    }
+
+    return (<XInput value={x1} setter={setX1} />);
+  }
+}
+
+function NormalPage() {
+  const selectInputChoices = [
+    'Find z using p-value',
+    'Find p-value using z',
+  ];
+  const [selected, setSelected] = useState(selectInputChoices[0]);
+
+  const [mean, setMean] = useState(0);
+  const [sd, setSD] = useState(1);
+
+  const [selectedArea, setSelectedArea] = useState('below');
+  const [p, setP] = useState(0.95);
+
+  const [x1, setX1] = useState(-1);
+  const [x2, setX2] = useState(1);
+
+  return (
+    <div className="page">
+      <Box>
+        <Grid item align="center" xs={12}>
+          <MySelectInput
+            id="z-select-input"
+            value={selected}
+            setter={setSelected}
+            choices={selectInputChoices}
+          />
+        </Grid>
+
+        <Grid item align="center" xs={12}>
+          <MeanInput value={mean} setter={setMean} />
+          <SDInput value={sd} setter={setSD} />
+
+          <NumInputs
+            selected={selected}
+            selectedArea={selectedArea}
+            p={p}
+            setP={setP}
+            x1={x1}
+            setX1={setX1}
+            x2={x2}
+            setX2={setX2}
+          />
+        </Grid>
+
+        <Grid item align="center" xs={12}>
+          <CurveAreaRadioButtons
+            setter={setSelectedArea}
+            isSymmetric
+          />
+        </Grid>
+
+        <Grid item align="center" xs={12}>
+          <DistPlot
+            makeDist={() => new Normal(Number(mean), Number(sd))}
+            p={p}
+            x1={x1}
+            x2={x2}
+            selectedTypeId={selectInputChoices.indexOf(selected)}
+            selectedArea={selectedArea}
+          />
+        </Grid>
+      </Box>
+    </div>
+  );
+}
+
+export default NormalPage;
