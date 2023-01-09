@@ -35,24 +35,24 @@ function DistPlot(props) {
     } else if (selectedArea === 'outside') {
       const { x2: a } = fillRanges[0];
       const { x1: b } = fillRanges[1];
-      answerDescriptionText = `${(p * 100).toFixed(1)}% of the data is outside ${a.toFixed(2)} and ${b.toFixed(2)}`;
+      answerDescriptionText = `${(p * 100).toFixed(2)}% of the data is outside ${a.toFixed(2)} and ${b.toFixed(2)}`;
     } else if (selectedArea === 'between') {
       const { x1: a, x2: b } = fillRanges[0];
-      answerDescriptionText = `${(p * 100).toFixed(1)}% of the data is between ${a.toFixed(2)} and ${b.toFixed(2)}`;
+      answerDescriptionText = `${(p * 100).toFixed(2)}% of the data is between ${a.toFixed(2)} and ${b.toFixed(2)}`;
     }
   } else if (selectedTypeId === 1) {
     const ranges = dist.pFromAreaFillRanges(selectedArea, x1, x2);
     fillRanges.push(...ranges);
 
     const pi = dist.pFromArea(selectedArea, x1, x2);
-    answerText = `p=${pi.toFixed(3)}`;
+    answerText = `p=${pi.toFixed(4)}`;
 
     if (selectedArea === 'above' || selectedArea === 'below') {
-      answerDescriptionText = `${(pi * 100).toFixed(1)}% of the data is ${selectedArea} ${x1.toFixed(2)}`;
+      answerDescriptionText = `${(pi * 100).toFixed(2)}% of the data is ${selectedArea} ${x1.toFixed(2)}`;
     } else if (selectedArea === 'outside') {
-      answerDescriptionText = `${(pi * 100).toFixed(1)}% of the data is outside ${x1.toFixed(2)} and ${x2.toFixed(2)}`;
+      answerDescriptionText = `${(pi * 100).toFixed(2)}% of the data is outside ${x1.toFixed(2)} and ${x2.toFixed(2)}`;
     } else if (selectedArea === 'between') {
-      answerDescriptionText = `${(pi * 100).toFixed(1)}% of the data is between ${x1.toFixed(2)} and ${x2.toFixed(2)}`;
+      answerDescriptionText = `${(pi * 100).toFixed(2)}% of the data is between ${x1.toFixed(2)} and ${x2.toFixed(2)}`;
     }
   }
 
