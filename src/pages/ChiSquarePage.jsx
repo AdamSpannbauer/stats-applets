@@ -40,7 +40,7 @@ function ChiSquarePage() {
   const [selected, setSelected] = useState(selectInputChoices[0]);
 
   const [dof, setDof] = useState(1);
-  const [selectedArea, setSelectedArea] = useState('below');
+  const [selectedArea, setSelectedArea] = useState('above');
   const [p, setP] = useState(0.95);
 
   const [x1, setX1] = useState(0);
@@ -86,6 +86,7 @@ function ChiSquarePage() {
         <Grid item align="center" xs={12}>
           <CurveAreaRadioButtons
             setter={setSelectedArea}
+            defaultValue="above"
             isSymmetric={false}
           />
         </Grid>
