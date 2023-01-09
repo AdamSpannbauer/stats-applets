@@ -14,7 +14,7 @@ class ChiSquare extends Distribution {
 
     this.minX = 0;
     if (this.minX < 1) this.minX = 0;
-    this.maxX = dof + dof * 1.5;
+    this.maxX = dof + dof * 2;
     if (this.maxX < 10) this.maxX = 10;
   }
 
