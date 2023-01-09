@@ -16,8 +16,8 @@ function MySelectInput(props) {
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
+    <div style={{ marginTop: '1em' }}>
+      <FormControl sx={{ m: 1, minWidth: 300 }}>
         <InputLabel id={`${id}-label` || 'select-input'}>{label || 'Select Tool'}</InputLabel>
         <Select
           labelId={`${id}-label` || 'select-input'}

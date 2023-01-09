@@ -66,6 +66,7 @@ function DistPlot(props) {
   return (
     <>
       <h1>{answerText}</h1>
+      <h3>{answerDescriptionText}</h3>
       <Plot
         data={plotlyData}
         layout={{
@@ -77,7 +78,6 @@ function DistPlot(props) {
         }}
         config={{ displayModeBar: false }}
       />
-      <h3>{answerDescriptionText}</h3>
     </>
   );
 }

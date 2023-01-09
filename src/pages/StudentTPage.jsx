@@ -52,7 +52,15 @@ function StudentTPage() {
 
   return (
     <div className="page">
-      <Box>
+      <Box
+        component="form"
+        sx={{
+          width: 'auto',
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
         <Grid item align="center" xs={12}>
           <MySelectInput
             id="t-select-input"
@@ -61,6 +69,8 @@ function StudentTPage() {
             choices={selectInputChoices}
           />
         </Grid>
+
+        <hr />
 
         <Grid item align="center" xs={12}>
           <DofInput value={dof} setter={setDof} />

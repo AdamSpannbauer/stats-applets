@@ -51,7 +51,15 @@ function NormalPage() {
 
   return (
     <div className="page">
-      <Box>
+      <Box
+        component="form"
+        sx={{
+          width: 'auto',
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
         <Grid item align="center" xs={12}>
           <MySelectInput
             id="z-select-input"
@@ -60,6 +68,8 @@ function NormalPage() {
             choices={selectInputChoices}
           />
         </Grid>
+
+        <hr />
 
         <Grid item align="center" xs={12}>
           <MeanInput value={mean} setter={setMean} />
