@@ -1,5 +1,6 @@
 import jstat from 'jstat';
 import Distribution from '../Distribution';
+import { mapRange } from '../mathUtils';
 
 class StudentT extends Distribution {
   constructor(dof) {
@@ -15,8 +16,8 @@ class StudentT extends Distribution {
     this.cdf = (x) => jstat.studentt.cdf(x, dof);
     this.inv = (x) => jstat.studentt.inv(x, dof);
 
-    this.minX = -5.5;
-    this.maxX = 5.5;
+    this.minX = mapRange(dof, 1, 30, -10, -4.5, true);
+    this.maxX = mapRange(dof, 1, 30, 10, 4.5, true);
   }
 
   pFromAreaFillRanges(areaName, x1, x2) {
