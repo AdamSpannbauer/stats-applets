@@ -17,9 +17,9 @@ function NumInputs(props) {
     selected, selectedArea, p, setP, x1, setX1, x2, setX2,
   } = props;
 
-  if (selected === 'Find z using p-value') {
+  if (selected === 'Find x using p-value') {
     return (<AreaInput value={p} setter={setP} />);
-  } if (selected === 'Find p-value using z') {
+  } if (selected === 'Find p-value using x') {
     if (selectedArea === 'outside' || selectedArea === 'between') {
       return (
         <>
@@ -35,8 +35,8 @@ function NumInputs(props) {
 
 function NormalPage() {
   const selectInputChoices = [
-    'Find z using p-value',
-    'Find p-value using z',
+    'Find x using p-value',
+    'Find p-value using x',
   ];
   const [selected, setSelected] = useState(selectInputChoices[0]);
 

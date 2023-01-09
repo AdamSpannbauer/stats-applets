@@ -28,7 +28,11 @@ function DistPlot(props) {
 
     const x = dist.xFromArea(selectedArea, p);
 
-    answerText = `x=${x.toFixed(2)}`;
+    if (dist.mean === 0 && dist.sd === 1) {
+      answerText = `z=${x.toFixed(2)}`;
+    } else {
+      answerText = `x=${x.toFixed(2)}`;
+    }
 
     if (selectedArea === 'above' || selectedArea === 'below') {
       answerDescriptionText = `${(p * 100).toFixed(1)}% of the data is ${selectedArea} ${x.toFixed(2)}`;
