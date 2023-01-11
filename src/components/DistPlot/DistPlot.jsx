@@ -73,6 +73,7 @@ function DistPlot(props) {
       <h3>{answerDescriptionText}</h3>
       <Plot
         data={plotlyData}
+        useResizeHandler
         layout={{
           xaxis: { zeroline: false },
           showlegend: false,
@@ -81,6 +82,7 @@ function DistPlot(props) {
           },
         }}
         config={{ displayModeBar: false }}
+        style={{ maxWidth: '700px' }}
       />
     </div>
   );

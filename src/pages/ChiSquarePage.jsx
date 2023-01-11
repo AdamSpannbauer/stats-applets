@@ -51,7 +51,7 @@ function ChiSquarePage() {
       <Box
         component="form"
         sx={{
-          width: 'auto',
+          width: '100%',
           '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}
         noValidate

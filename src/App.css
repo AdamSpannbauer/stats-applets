@@ -10,6 +10,8 @@ body {
 }
 
 .my-plot-container {
+  width: 90%;
+  max-width: 725px;
   margin-top: 1em;
   border: 0.1em solid;
   border-radius: 8px;
@@ -18,9 +20,9 @@ body {
 }
 
 .select-tool-container {
-  border-radius: 8px;
+  background-color: #ff840099;
   padding-top: 1.5em;
-  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 /* Position and sizing of burger button */
@@ -34,7 +36,7 @@ body {
 
 /* Outline for burger button focus state */
 .bm-burger-button button:focus {
-  outline: 2px solid #ff8200;
+  outline: 2px solid #000000;
   outline-offset: 8px;
 }
 

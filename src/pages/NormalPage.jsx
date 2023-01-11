@@ -54,7 +54,7 @@ function NormalPage() {
       <Box
         component="form"
         sx={{
-          width: 'auto',
+          width: '100%',
           '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}
         noValidate
@@ -94,7 +94,7 @@ function NormalPage() {
           />
         </Grid>
 
-        <Grid item align="center" xs={12}>
+        <Grid item align="center">
           <DistPlot
             makeDist={() => new Normal(Number(mean), Number(sd))}
             p={p}
