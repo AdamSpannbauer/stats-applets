@@ -86,7 +86,6 @@ function ChiSquarePage() {
         <Grid item align="center" xs={12}>
           <CurveAreaRadioButtons
             setter={setSelectedArea}
-            defaultValue="above"
             isSymmetric={false}
           />
         </Grid>

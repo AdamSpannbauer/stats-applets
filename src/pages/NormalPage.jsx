@@ -43,7 +43,7 @@ function NormalPage() {
   const [mean, setMean] = useState(0);
   const [sd, setSD] = useState(1);
 
-  const [selectedArea, setSelectedArea] = useState('below');
+  const [selectedArea, setSelectedArea] = useState('above');
   const [p, setP] = useState(0.95);
 
   const [x1, setX1] = useState(-1);
@@ -74,7 +74,9 @@ function NormalPage() {
         <Grid item align="center" xs={12}>
           <MeanInput value={mean} setter={setMean} />
           <SDInput value={sd} setter={setSD} />
+        </Grid>
 
+        <Grid item align="center" xs={12}>
           <NumInputs
             selected={selected}
             selectedArea={selectedArea}
