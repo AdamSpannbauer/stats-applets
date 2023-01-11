@@ -68,7 +68,7 @@ function DistPlot(props) {
   }
 
   return (
-    <>
+    <div className="my-plot-container">
       <h1>{answerText}</h1>
       <h3>{answerDescriptionText}</h3>
       <Plot
@@ -82,7 +82,7 @@ function DistPlot(props) {
         }}
         config={{ displayModeBar: false }}
       />
-    </>
+    </div>
   );
 }
 

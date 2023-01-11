@@ -16,8 +16,8 @@ function MySelectInput(props) {
   };
 
   return (
-    <div style={{ marginTop: '1em' }}>
-      <FormControl sx={{ m: 1, minWidth: 300 }}>
+    <div className="select-tool-container">
+      <FormControl color="warning" variant="filled" sx={{ marginBottom: '1em' }}>
         <InputLabel id={`${id}-label` || 'select-input'}>{label || 'Select Tool'}</InputLabel>
         <Select
           labelId={`${id}-label` || 'select-input'}
@@ -30,6 +30,7 @@ function MySelectInput(props) {
           {choices.map((choice) => <MenuItem value={choice} key={choice}>{choice}</MenuItem>)}
         </Select>
       </FormControl>
+      <hr />
     </div>
   );
 }

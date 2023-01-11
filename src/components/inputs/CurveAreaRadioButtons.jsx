@@ -18,7 +18,7 @@ function CurveAreaRadioButtons(props) {
 
   return (
     <FormControl>
-      <FormLabel style={{ 'padding-top': '1em' }} id="curve-region-radio-buttons-group">Region</FormLabel>
+      <FormLabel style={{ paddingTop: '1em' }} id="curve-region-radio-buttons-group">Region</FormLabel>
       <RadioGroup
         onChange={onChange}
         aria-labelledby="curve-region-radio-buttons-group-label"

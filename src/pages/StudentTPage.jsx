@@ -70,8 +70,6 @@ function StudentTPage() {
           />
         </Grid>
 
-        <hr />
-
         <Grid item align="center" xs={12}>
           <DofInput value={dof} setter={setDof} />
         </Grid>

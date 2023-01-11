@@ -69,8 +69,6 @@ function NormalPage() {
           />
         </Grid>
 
-        <hr />
-
         <Grid item align="center" xs={12}>
           <MeanInput value={mean} setter={setMean} />
           <SDInput value={sd} setter={setSD} />
