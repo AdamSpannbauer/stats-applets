@@ -10,6 +10,7 @@ import XInput from '../components/inputs/numInputs/XInput';
 import AreaInput from '../components/inputs/numInputs/AreaInput';
 import MeanInput from '../components/inputs/numInputs/MeanInput';
 import SDInput from '../components/inputs/numInputs/SDInput';
+import RoundDigitsInput from '../components/inputs/numInputs/RoundDigitsInput';
 
 function NumInputs(props) {
   const {
@@ -39,6 +40,7 @@ function NormalPage() {
     'Find p-value using x',
   ];
   const [selected, setSelected] = useState(selectInputChoices[0]);
+  const [roundDigits, setRoundDigits] = useState(2);
 
   const [mean, setMean] = useState(0);
   const [sd, setSD] = useState(1);
@@ -60,14 +62,17 @@ function NormalPage() {
         noValidate
         autoComplete="off"
       >
-        <Grid item align="center" xs={12}>
-          <MySelectInput
-            id="z-select-input"
-            value={selected}
-            setter={setSelected}
-            choices={selectInputChoices}
-          />
-        </Grid>
+        <div className="select-tool-container">
+          <Grid item align="center" xs={12}>
+            <MySelectInput
+              id="z-select-input"
+              value={selected}
+              setter={setSelected}
+              choices={selectInputChoices}
+            />
+            <RoundDigitsInput value={roundDigits} setter={setRoundDigits} label="Round to:" />
+          </Grid>
+        </div>
 
         <Grid item align="center" xs={12}>
           <MeanInput value={mean} setter={setMean} />
@@ -100,6 +105,7 @@ function NormalPage() {
             p={p}
             x1={x1}
             x2={x2}
+            roundDigits={roundDigits}
             selectedTypeId={selectInputChoices.indexOf(selected)}
             selectedArea={selectedArea}
           />

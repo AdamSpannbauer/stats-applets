@@ -25,9 +25,13 @@ body {
   margin-bottom: 1.5em;
 }
 
+.round-digits-input {
+  margin-top: 0px !important
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;
   width: 36px;
   height: 30px;
   left: 36px;

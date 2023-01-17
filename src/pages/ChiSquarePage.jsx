@@ -9,6 +9,7 @@ import CurveAreaRadioButtons from '../components/inputs/CurveAreaRadioButtons';
 import DofInput from '../components/inputs/numInputs/DofInput';
 import XInput from '../components/inputs/numInputs/XInput';
 import AreaInput from '../components/inputs/numInputs/AreaInput';
+import RoundDigitsInput from '../components/inputs/numInputs/RoundDigitsInput';
 
 function NumInputs(props) {
   const {
@@ -38,6 +39,7 @@ function ChiSquarePage() {
     'Find p-value using chisquare',
   ];
   const [selected, setSelected] = useState(selectInputChoices[0]);
+  const [roundDigits, setRoundDigits] = useState(2);
 
   const [dof, setDof] = useState(1);
   const [selectedArea, setSelectedArea] = useState('above');
@@ -57,14 +59,17 @@ function ChiSquarePage() {
         noValidate
         autoComplete="off"
       >
-        <Grid item align="center" xs={12}>
-          <MySelectInput
-            id="chi-select-input"
-            value={selected}
-            setter={setSelected}
-            choices={selectInputChoices}
-          />
-        </Grid>
+        <div className="select-tool-container">
+          <Grid item align="center" xs={12}>
+            <MySelectInput
+              id="chi-select-input"
+              value={selected}
+              setter={setSelected}
+              choices={selectInputChoices}
+            />
+            <RoundDigitsInput value={roundDigits} setter={setRoundDigits} label="Round to:" />
+          </Grid>
+        </div>
 
         <Grid item align="center" xs={12}>
           <DofInput value={dof} setter={setDof} />
@@ -96,6 +101,7 @@ function ChiSquarePage() {
             p={p}
             x1={x1}
             x2={x2}
+            roundDigits={roundDigits}
             selectedTypeId={selectInputChoices.indexOf(selected)}
             selectedArea={selectedArea}
           />
