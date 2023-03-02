@@ -9,6 +9,15 @@ body {
   justify-content: center;
 }
 
+.homepage-text {
+  max-width: 800px;
+}
+
+.homepage-footer-text {
+  max-width: 800px;
+  color: #8e8e8e;
+}
+
 .my-plot-container {
   width: 90%;
   max-width: 725px;
