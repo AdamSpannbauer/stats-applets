@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MuiMarkdown from 'mui-markdown';
 
 import { Box, Grid } from '@mui/material';
 import MySelectInput from '../components/inputs/SelectInput';
@@ -11,6 +12,8 @@ import AreaInput from '../components/inputs/numInputs/AreaInput';
 import MeanInput from '../components/inputs/numInputs/MeanInput';
 import SDInput from '../components/inputs/numInputs/SDInput';
 import RoundDigitsInput from '../components/inputs/numInputs/RoundDigitsInput';
+
+import content from './text-content/normal-content';
 
 function NumInputs(props) {
   const {
@@ -74,43 +77,51 @@ function NormalPage() {
           </Grid>
         </div>
 
-        <Grid item align="center" xs={12}>
-          <MeanInput value={mean} setter={setMean} />
-          <SDInput value={sd} setter={setSD} />
-        </Grid>
+        <div className="main-page-area">
+          <Grid item align="center" xs={12}>
+            <MeanInput value={mean} setter={setMean} />
+            <SDInput value={sd} setter={setSD} />
+          </Grid>
 
-        <Grid item align="center" xs={12}>
-          <NumInputs
-            selected={selected}
-            selectedArea={selectedArea}
-            p={p}
-            setP={setP}
-            x1={x1}
-            setX1={setX1}
-            x2={x2}
-            setX2={setX2}
-          />
-        </Grid>
+          <Grid item align="center" xs={12}>
+            <NumInputs
+              selected={selected}
+              selectedArea={selectedArea}
+              p={p}
+              setP={setP}
+              x1={x1}
+              setX1={setX1}
+              x2={x2}
+              setX2={setX2}
+            />
+          </Grid>
 
-        <Grid item align="center" xs={12}>
-          <CurveAreaRadioButtons
-            setter={setSelectedArea}
-            isSymmetric
-          />
-        </Grid>
+          <Grid item align="center" xs={12}>
+            <CurveAreaRadioButtons
+              setter={setSelectedArea}
+              isSymmetric
+            />
+          </Grid>
 
-        <Grid item align="center">
-          <DistPlot
-            makeDist={() => new Normal(Number(mean), Number(sd))}
-            p={p}
-            x1={x1}
-            x2={x2}
-            roundDigits={roundDigits}
-            selectedTypeId={selectInputChoices.indexOf(selected)}
-            selectedArea={selectedArea}
-          />
-        </Grid>
+          <Grid item align="center">
+            <DistPlot
+              makeDist={() => new Normal(Number(mean), Number(sd))}
+              p={p}
+              x1={x1}
+              x2={x2}
+              roundDigits={roundDigits}
+              selectedTypeId={selectInputChoices.indexOf(selected)}
+              selectedArea={selectedArea}
+            />
+          </Grid>
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Box width="70%" p={3}>
+              <MuiMarkdown>{content}</MuiMarkdown>
+            </Box>
+          </Box>
+        </div>
       </Box>
+
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MuiMarkdown from 'mui-markdown';
 
 import { Box, Grid } from '@mui/material';
 import DistPlot from '../components/DistPlot/DistPlot';
@@ -11,15 +12,17 @@ import XInput from '../components/inputs/numInputs/XInput';
 import AreaInput from '../components/inputs/numInputs/AreaInput';
 import RoundDigitsInput from '../components/inputs/numInputs/RoundDigitsInput';
 
+import content from './text-content/chi-square-content';
+
 function NumInputs(props) {
   const {
     // eslint-disable-next-line react/prop-types
     selected, selectedArea, p, setP, x1, setX1, x2, setX2,
   } = props;
 
-  if (selected === 'Find chisquare using p-value') {
+  if (selected === 'Find χ² using p-value') {
     return (<AreaInput value={p} setter={setP} />);
-  } if (selected === 'Find p-value using chisquare') {
+  } if (selected === 'Find p-value using χ²') {
     if (selectedArea === 'outside' || selectedArea === 'between') {
       return (
         <>
@@ -35,8 +38,8 @@ function NumInputs(props) {
 
 function ChiSquarePage() {
   const selectInputChoices = [
-    'Find chisquare using p-value',
-    'Find p-value using chisquare',
+    'Find χ² using p-value',
+    'Find p-value using χ²',
   ];
   const [selected, setSelected] = useState(selectInputChoices[0]);
   const [roundDigits, setRoundDigits] = useState(2);
@@ -71,41 +74,50 @@ function ChiSquarePage() {
           </Grid>
         </div>
 
-        <Grid item align="center" xs={12}>
-          <DofInput value={dof} setter={setDof} />
-        </Grid>
+        <div className="main-page-area">
 
-        <Grid item align="center" xs={12}>
-          <NumInputs
-            selected={selected}
-            selectedArea={selectedArea}
-            p={p}
-            setP={setP}
-            x1={x1}
-            setX1={setX1}
-            x2={x2}
-            setX2={setX2}
-          />
-        </Grid>
+          <Grid item align="center" xs={12}>
+            <DofInput value={dof} setter={setDof} />
+          </Grid>
 
-        <Grid item align="center" xs={12}>
-          <CurveAreaRadioButtons
-            setter={setSelectedArea}
-            isSymmetric={false}
-          />
-        </Grid>
+          <Grid item align="center" xs={12}>
+            <NumInputs
+              selected={selected}
+              selectedArea={selectedArea}
+              p={p}
+              setP={setP}
+              x1={x1}
+              setX1={setX1}
+              x2={x2}
+              setX2={setX2}
+            />
+          </Grid>
 
-        <Grid item align="center" xs={12}>
-          <DistPlot
-            makeDist={() => new ChiSquare(Number(dof))}
-            p={p}
-            x1={x1}
-            x2={x2}
-            roundDigits={roundDigits}
-            selectedTypeId={selectInputChoices.indexOf(selected)}
-            selectedArea={selectedArea}
-          />
-        </Grid>
+          <Grid item align="center" xs={12}>
+            <CurveAreaRadioButtons
+              setter={setSelectedArea}
+              isSymmetric={false}
+            />
+          </Grid>
+
+          <Grid item align="center" xs={12}>
+            <DistPlot
+              makeDist={() => new ChiSquare(Number(dof))}
+              p={p}
+              x1={x1}
+              x2={x2}
+              roundDigits={roundDigits}
+              selectedTypeId={selectInputChoices.indexOf(selected)}
+              selectedArea={selectedArea}
+            />
+          </Grid>
+
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Box width="70%" p={3}>
+              <MuiMarkdown>{content}</MuiMarkdown>
+            </Box>
+          </Box>
+        </div>
       </Box>
     </div>
   );

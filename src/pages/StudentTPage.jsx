@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import MuiMarkdown from 'mui-markdown';
 
 import { Box, Grid } from '@mui/material';
 import DistPlot from '../components/DistPlot/DistPlot';
@@ -15,6 +16,8 @@ import NInput from '../components/inputs/numInputs/NInput';
 import SDInput from '../components/inputs/numInputs/SDInput';
 import welchsDegreesOfFreedom from '../statistics/welchsDof';
 import { myRound } from '../statistics/mathUtils';
+
+import content from './text-content/student-t-content';
 
 function NumInputs(props) {
   const {
@@ -111,64 +114,72 @@ function StudentTPage() {
           </Grid>
         </div>
 
-        {selected === "Calculate Welch's dof" ? null
-          : (
-            <Grid item align="center" xs={12}>
-              <DofInput value={dof} setter={setDof} />
-            </Grid>
+        <div className="main-page-area">
+          {selected === "Calculate Welch's dof" ? null
+            : (
+              <Grid item align="center" xs={12}>
+                <DofInput value={dof} setter={setDof} />
+              </Grid>
 
-          )}
+            )}
 
-        <NumInputs
-          selected={selected}
-          selectedArea={selectedArea}
-          p={p}
-          setP={setP}
-          x1={x1}
-          setX1={setX1}
-          x2={x2}
-          setX2={setX2}
-          s1={s1}
-          setS1={setS1}
-          s2={s2}
-          setS2={setS2}
-          n1={n1}
-          setN1={setN1}
-          n2={n2}
-          setN2={setN2}
-        />
-
-        {selected === "Calculate Welch's dof" ? null
-          : (
-            <Grid item align="center" xs={12}>
-              <CurveAreaRadioButtons
-                setter={setSelectedArea}
-                isSymmetric
-              />
-            </Grid>
-          )}
-
-        {selected !== "Calculate Welch's dof" ? null
-          : (
-            <Grid item align="center" xs={12}>
-              <h2>
-                {`Degrees of freedom = ${myRound(welchsDegreesOfFreedom(n1, s1, n2, s2), roundDigits)}`}
-              </h2>
-            </Grid>
-
-          )}
-
-        <Grid item align="center" xs={12}>
-          <DistPlot
-            makeDist={() => new StudentT(selected !== "Calculate Welch's dof" ? Number(dof) : welchsDegreesOfFreedom(n1, s1, n2, s2))}
-            p={p}
-            x1={x1}
-            x2={x2}
-            roundDigits={roundDigits}
-            selectedTypeId={selectInputChoices.indexOf(selected)}
+          <NumInputs
+            selected={selected}
             selectedArea={selectedArea}
+            p={p}
+            setP={setP}
+            x1={x1}
+            setX1={setX1}
+            x2={x2}
+            setX2={setX2}
+            s1={s1}
+            setS1={setS1}
+            s2={s2}
+            setS2={setS2}
+            n1={n1}
+            setN1={setN1}
+            n2={n2}
+            setN2={setN2}
           />
-        </Grid>
+
+          {selected === "Calculate Welch's dof" ? null
+            : (
+              <Grid item align="center" xs={12}>
+                <CurveAreaRadioButtons
+                  setter={setSelectedArea}
+                  isSymmetric
+                />
+              </Grid>
+            )}
+
+          {selected !== "Calculate Welch's dof" ? null
+            : (
+              <Grid item align="center" xs={12}>
+                <h2>
+                  {`Degrees of freedom = ${myRound(welchsDegreesOfFreedom(n1, s1, n2, s2), roundDigits)}`}
+                </h2>
+              </Grid>
+
+            )}
+
+          <Grid item align="center" xs={12}>
+            <DistPlot
+              makeDist={() => new StudentT(selected !== "Calculate Welch's dof" ? Number(dof) : welchsDegreesOfFreedom(n1, s1, n2, s2))}
+              p={p}
+              x1={x1}
+              x2={x2}
+              roundDigits={roundDigits}
+              selectedTypeId={selectInputChoices.indexOf(selected)}
+              selectedArea={selectedArea}
+            />
+          </Grid>
+
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Box width="70%" p={3}>
+              <MuiMarkdown>{content}</MuiMarkdown>
+            </Box>
+          </Box>
+        </div>
       </Box>
     </div>
   );

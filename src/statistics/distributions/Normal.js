@@ -6,6 +6,8 @@ class Normal extends Distribution {
     const symmetric = true;
     super(symmetric);
 
+    this.distname = 'normal';
+
     this.mean = Number(mean);
     this.sd = Number(sd);
 

@@ -8,6 +8,8 @@ class Distribution {
     this.ZERO = ZERO;
     this.symmetric = symmetric;
 
+    this.distname = '';
+
     this.dof = null;
     this.mean = null;
     this.sd = null;

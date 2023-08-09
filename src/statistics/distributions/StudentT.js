@@ -7,6 +7,8 @@ class StudentT extends Distribution {
     const symmetric = true;
     super(symmetric);
 
+    this.distname = 'studentt';
+
     // eslint-disable-next-line no-param-reassign
     dof = Number(dof);
 

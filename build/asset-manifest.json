@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/stats-applets/static/css/main.70b31359.css",
-    "main.js": "/stats-applets/static/js/main.c6f749d5.js",
+    "main.css": "/stats-applets/static/css/main.d3c6bafa.css",
+    "main.js": "/stats-applets/static/js/main.5f1750c5.js",
     "static/js/787.5ddfb928.chunk.js": "/stats-applets/static/js/787.5ddfb928.chunk.js",
+    "static/media/normal.jpg": "/stats-applets/static/media/normal.2c7becc06c70c1ddc5ac.jpg",
+    "static/media/chi-square.jpg": "/stats-applets/static/media/chi-square.20b6b3c05be2404c7c88.jpg",
+    "static/media/student-t.jpg": "/stats-applets/static/media/student-t.e86b2ebeb4e79c46baa6.jpg",
     "index.html": "/stats-applets/index.html",
-    "main.70b31359.css.map": "/stats-applets/static/css/main.70b31359.css.map",
-    "main.c6f749d5.js.map": "/stats-applets/static/js/main.c6f749d5.js.map",
+    "static/media/chi-square-content.md": "/stats-applets/static/media/chi-square-content.84df6ca79218eb43052d.md",
+    "main.d3c6bafa.css.map": "/stats-applets/static/css/main.d3c6bafa.css.map",
+    "main.5f1750c5.js.map": "/stats-applets/static/js/main.5f1750c5.js.map",
     "787.5ddfb928.chunk.js.map": "/stats-applets/static/js/787.5ddfb928.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70b31359.css",
-    "static/js/main.c6f749d5.js"
+    "static/css/main.d3c6bafa.css",
+    "static/js/main.5f1750c5.js"
   ]
 }

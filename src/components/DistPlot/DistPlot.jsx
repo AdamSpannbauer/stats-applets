@@ -34,11 +34,25 @@ function DistPlot(props) {
     const roundedX = myRound(x, roundDigits);
     const roundedPerc = (p * 100).toFixed(roundDigits - 2 >= 0 ? roundDigits - 2 : 0);
 
-    if (dist.mean === 0 && dist.sd === 1) {
-      answerText = `z=${roundedX}`;
-    } else {
-      answerText = `x=${roundedX}`;
+    let absbar = '';
+    if (selectedArea === 'outside' || selectedArea === 'between') {
+      absbar = '|';
     }
+
+    let ansSymbol = '';
+    if (dist.distname === 'normal') {
+      if (dist.mean === 0 && dist.sd === 1) {
+        ansSymbol = 'z';
+      } else {
+        ansSymbol = 'x';
+      }
+    } else if (dist.distname === 'studentt') {
+      ansSymbol = 't';
+    } else if (dist.distname === 'chisquare') {
+      ansSymbol = 'χ²';
+    }
+
+    answerText = `${absbar}${ansSymbol}${absbar}=${roundedX}`;
 
     if (selectedArea === 'above' || selectedArea === 'below') {
       answerDescriptionText = `${roundedPerc}% of the data is ${selectedArea} ${roundedX}`;

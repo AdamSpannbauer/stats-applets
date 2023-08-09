@@ -6,6 +6,8 @@ class ChiSquare extends Distribution {
     const symmetric = false;
     super(symmetric);
 
+    this.distname = 'chisquare';
+
     this.dof = dof;
 
     this.pdf = (x) => jstat.chisquare.pdf(x, dof);
