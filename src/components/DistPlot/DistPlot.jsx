@@ -93,6 +93,25 @@ function DistPlot(props) {
     plotlyData.push(...fillData);
   }
 
+  // Use auto ticks for t and chi
+  // Force tick marks at mean and +/1 sd up to 3 sd
+  let tickmode = 'auto';
+  let tickvals = [];
+  let ticktext = [];
+  if (dist.distname === 'normal') {
+    tickmode = 'array';
+    tickvals = [
+      dist.mean - dist.sd * 3,
+      dist.mean - dist.sd * 2,
+      dist.mean - dist.sd * 1,
+      dist.mean,
+      dist.mean + dist.sd * 1,
+      dist.mean + dist.sd * 2,
+      dist.mean + dist.sd * 3,
+    ];
+    ticktext = tickvals;
+  }
+
   return (
     <div className="my-plot-container">
       <h1>{answerText}</h1>
@@ -101,7 +120,9 @@ function DistPlot(props) {
         data={plotlyData}
         useResizeHandler
         layout={{
-          xaxis: { zeroline: false },
+          xaxis: {
+            zeroline: false, tickmode, tickvals, ticktext,
+          },
           showlegend: false,
           margin: {
             l: 50, r: 40, b: 50, t: 40, pad: 4,
