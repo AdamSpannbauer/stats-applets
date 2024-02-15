@@ -3,7 +3,7 @@ const content = `
 
 The normal distribution is one of the fundamental concepts in statistics.
 It is widely used to model real-world phenomena and is the foundation for many statistical methods.
-This tool helps you use the normal distribution to calculate critical values, z-scores, and p-values, 
+This tool helps you use the normal distribution to calculate critical values, z-scores, and probabilities, 
 essential for hypothesis testing, confidence intervals, and probability calculations.
 
 The height of the distribution relates to how likely an outcome is to occur;
@@ -20,8 +20,8 @@ z-scores, enabling us to compare and interpret values across different datasets!
 - **Mean (μ):** Enter the mean of the distribution. It represents the center of the distribution.
 - **Standard Deviation (σ):** Enter the standard deviation of the distribution. It determines the spread or variability of the distribution.
 - **Area / X:** Enter these values depending on the selected tool.
-  - **Area** (when using "Find x using p-value"): Enter the area (probability) that you want to find associated x (or z values) for.
-  - **X** or **X1 & X2** (when using "Find p-value using x"): Enter in the x value(s) that you want to find associated probabilities for.
+  - **Area** (when using "Find x using probability"): Enter the area (probability) that you want to find associated x (or z values) for.
+  - **X** or **X1 & X2** (when using "Find probability using x"): Enter in the x value(s) that you want to find associated probabilities for.
 - **Region**:
   - **Above**: Select this option when you are interested in exploring the probability *above* a certain value. You'll use this method for one-tailed hypothesis tests!
   - **Below**: Select this option when you are interested in exploring the probability *below* a certain value. You'll use this method for one-tailed hypothesis tests!
@@ -30,11 +30,11 @@ z-scores, enabling us to compare and interpret values across different datasets!
 
 ### Understanding the two separate tools
 
-**"Find x using p-value"**: This is useful when you have a significance level or confidence level and need to 
+**"Find x using probability"**: This is useful when you have a significance level or confidence level and need to 
 determine the "critical value" (x or z) to construct confidence intervals or perform hypothesis tests.
 Enter the desired area (probability) and the tool will compute and display the corresponding critical value.
 
-**"Find p-value using x"**: This is useful to determine the probability of observing a certain value or range in a normally distributed dataset.
+**"Find probability using x"**: This is useful to determine the probability of observing a certain value or range in a normally distributed dataset.
 These probabilities are often abbreviated to "p-values" when testing hypotheses. Enter an observed value or a calculated 
 test statistic, and the tool will compute the corresponding probability.
 `;

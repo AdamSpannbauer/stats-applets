@@ -16,7 +16,7 @@ function HomePage() {
           <div className="homepage-text">
             <h1>Stats Applets</h1>
             <p>
-              A collection of applets to calculate p-values, look up critical values, and visualize the area under the curve of a few popular distributions.
+              A collection of applets to calculate probabilites, look up critical values, and visualize the area under the curve of a few popular distributions.
             </p>
             <p>
               Choose one of the the distributions below or use the

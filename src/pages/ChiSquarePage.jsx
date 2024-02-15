@@ -20,9 +20,9 @@ function NumInputs(props) {
     selected, selectedArea, p, setP, x1, setX1, x2, setX2,
   } = props;
 
-  if (selected === 'Find χ² using p-value') {
+  if (selected === 'Find χ² using probability') {
     return (<AreaInput value={p} setter={setP} />);
-  } if (selected === 'Find p-value using χ²') {
+  } if (selected === 'Find probability using χ²') {
     if (selectedArea === 'outside' || selectedArea === 'between') {
       return (
         <>
@@ -38,8 +38,8 @@ function NumInputs(props) {
 
 function ChiSquarePage() {
   const selectInputChoices = [
-    'Find χ² using p-value',
-    'Find p-value using χ²',
+    'Find probability using χ²',
+    'Find χ² using probability',
   ];
   const [selected, setSelected] = useState(selectInputChoices[0]);
   const [roundDigits, setRoundDigits] = useState(2);
