@@ -27,7 +27,7 @@ function NumInputs(props) {
     s1, setS1, s2, setS2, n1, setN1, n2, setN2,
   } = props;
 
-  if (selected === 'Find t using p-value') {
+  if (selected === 'Find t using probability') {
     return (
       <Grid item align="center" xs={12}>
         <AreaInput value={p} setter={setP} />
@@ -35,7 +35,7 @@ function NumInputs(props) {
     );
   }
 
-  if (selected === 'Find p-value using t') {
+  if (selected === 'Find probability using t') {
     if (selectedArea === 'outside' || selectedArea === 'between') {
       return (
         <Grid item align="center" xs={12}>
@@ -72,8 +72,8 @@ function NumInputs(props) {
 
 function StudentTPage() {
   const selectInputChoices = [
-    'Find t using p-value',
-    'Find p-value using t',
+    'Find probability using t',
+    'Find t using probability',
     "Calculate Welch's dof",
   ];
   const [selected, setSelected] = useState(selectInputChoices[0]);
