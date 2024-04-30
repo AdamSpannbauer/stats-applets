@@ -38,8 +38,8 @@ function NumInputs(props) {
 
 function ChiSquarePage() {
   const selectInputChoices = [
-    'Find p-value using χ²',
     'Find χ² using p-value',
+    'Find p-value using χ²',
   ];
   const [selected, setSelected] = useState(selectInputChoices[0]);
   const [roundDigits, setRoundDigits] = useState(2);
